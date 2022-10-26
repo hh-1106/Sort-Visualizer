@@ -16,9 +16,9 @@ public class ShellSort : SortAlgorithm
                 for (j = i; j >= gap && A[j - gap] > temp; j -= gap)
                 {
                     A[j] = A[j - gap];
-                    A.States[j + 1] = 1;
+                    A.States[j] = 1;
                     yield return new WaitForSeconds(delay);
-                    A.States[j + 1] = 0;
+                    A.States[j] = 0;
                 }
                 A[j] = temp;
                 A.States[i] = 0;
