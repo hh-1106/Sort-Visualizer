@@ -23,7 +23,8 @@ public class SortAnim : MonoBehaviour
 
         sa = SAEnum switch
         {
-            SortAlogorithmEnum.BubbleSort => new BubbleSort(),
+            SortAlogorithmEnum.Bubble => new BubbleSort(),
+            SortAlogorithmEnum.Heap => new HeapSort(),
             _ => new Shuffle(),
         };
 
@@ -39,5 +40,6 @@ public class SortAnim : MonoBehaviour
 public enum SortAlogorithmEnum
 {
     Shuffle,
-    BubbleSort,
+    Bubble,
+    Heap,
 }
