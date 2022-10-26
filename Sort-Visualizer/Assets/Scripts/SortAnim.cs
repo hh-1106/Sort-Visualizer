@@ -20,6 +20,8 @@ public class SortAnim : MonoBehaviour
     {
         Application.targetFrameRate = 100;
 
+        sa = new Shuffle();
+        Task shuffleTask = new Task(sa.Sort(av, delay), false);
 
         sa = SAEnum switch
         {
@@ -27,11 +29,17 @@ public class SortAnim : MonoBehaviour
             SortAlogorithmEnum.Heap => new HeapSort(),
             SortAlogorithmEnum.Shell => new ShellSort(),
             SortAlogorithmEnum.Counting => new CountingSort(),
-            SortAlogorithmEnum.Bucket => new BubbleSort(),
+            SortAlogorithmEnum.Bucket => new BucketSort(),
             _ => new Shuffle(),
         };
+        Task sortTask = new Task(sa.Sort(av, delay), false);
 
-        StartCoroutine(sa.Sort(av, delay));
+        shuffleTask.Start();
+
+        shuffleTask.Finished += delegate (bool manual)
+        {
+            sortTask.Start();
+        };
     }
 
     private void Update()
