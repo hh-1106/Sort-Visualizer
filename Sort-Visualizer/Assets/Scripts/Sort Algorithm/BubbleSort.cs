@@ -8,11 +8,20 @@ public class BubbleSort : SortAlgorithm
     {
         for (int i = 0; i < A.n; i++)
         {
-            int j = Random.Range(1, A.n);
-            A.Swap(0, j);
-            A.States[j] = 1;
-            yield return new WaitForSeconds(delay);
-            A.States[j] = 0;
+            for (int j = A.n - 1; j > i; j--)
+            {
+                A.States[j] = 2;
+                A.States[j - 1] = 1;
+
+                yield return new WaitForSeconds(delay);
+
+                if (A[j] < A[j - 1])
+                {
+                    A.Swap(j, j - 1);
+                }
+                A.States[j] = 0;
+                A.States[j - 1] = 0;
+            }
         }
     }
 }

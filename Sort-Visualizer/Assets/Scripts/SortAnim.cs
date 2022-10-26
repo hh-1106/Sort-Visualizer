@@ -6,23 +6,24 @@ using Sirenix.OdinInspector;
 
 public class SortAnim : MonoBehaviour
 {
+    [LabelText("渲染算法"), Required]
     public ArrayVisual av;
     SortAlgorithm sa;
 
     [Title("排序算法"), EnumToggleButtons, HideLabel]
     public SortAlogorithmEnum SAEnum;
 
-    [LabelText("时间步长"), Range(0, 0.2f)]
+    [LabelText("时间步长"), Range(0, 0.1f)]
     public float delay;
 
     private void Start()
     {
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 100;
 
 
         sa = SAEnum switch
         {
-            SortAlogorithmEnum.Shuffle => new Shuffle(),
+            SortAlogorithmEnum.BubbleSort => new BubbleSort(),
             _ => new Shuffle(),
         };
 
@@ -38,4 +39,5 @@ public class SortAnim : MonoBehaviour
 public enum SortAlogorithmEnum
 {
     Shuffle,
+    BubbleSort,
 }

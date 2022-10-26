@@ -221,8 +221,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   av: {fileID: 89470250}
-  SAEnum: 0
-  delay: 0.02
+  SAEnum: 1
+  delay: 0.01
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
