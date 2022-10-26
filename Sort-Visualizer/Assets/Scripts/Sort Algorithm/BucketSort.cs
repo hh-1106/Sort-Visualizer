@@ -21,7 +21,7 @@ public class BucketSort : SortAlgorithm
         {
             if (b != null)
             {
-                // b.sort(null);
+                b.Sort();
                 A.States[j] = 1;
                 yield return new WaitForSeconds(delay);
                 A.States[j] = 0;
