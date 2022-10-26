@@ -27,6 +27,7 @@ public class SortAnim : MonoBehaviour
             SortAlogorithmEnum.Heap => new HeapSort(),
             SortAlogorithmEnum.Shell => new ShellSort(),
             SortAlogorithmEnum.Counting => new CountingSort(),
+            SortAlogorithmEnum.Bucket => new BubbleSort(),
             _ => new Shuffle(),
         };
 
@@ -46,4 +47,5 @@ public enum SortAlogorithmEnum
     Heap,
     Shell,
     Counting,
+    Bucket,
 }

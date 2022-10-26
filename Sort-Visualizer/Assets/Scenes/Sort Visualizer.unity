@@ -172,6 +172,7 @@ MonoBehaviour:
   arrayElementPrefab: {fileID: 5588409557190342854, guid: 5623c78d4860d20468a56d35a9510d22, type: 3}
   strokeWidth: 0.1
   n: 64
+  A: 
   palette:
   - {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
   - {r: 0.7830189, g: 0.21052866, b: 0.21052866, a: 1}
@@ -222,7 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   av: {fileID: 89470250}
-  SAEnum: 4
+  SAEnum: 5
   delay: 0.01
 --- !u!1 &519420028
 GameObject:

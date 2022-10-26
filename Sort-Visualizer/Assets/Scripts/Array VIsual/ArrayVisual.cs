@@ -18,7 +18,8 @@ public class ArrayVisual : MonoBehaviour
 
     [Title("数组长度")]
     public int n;
-    int[] A;        // 数组
+    [HideInInspector]
+    public int[] A; // 数组
     int[] states;   // 数组每个元素的状态
 
     [Title("配色版")]
