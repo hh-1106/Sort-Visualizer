@@ -20,6 +20,12 @@ public class MovieRecorder : MonoBehaviour
     public MovieRecorderSettings m_Settings = null;
 
 
+    [Title("Recording Progress"), HideLabel]
+    [ProgressBar(0, 16, r: 1, g: 0.6f, b: 0, Segmented = true)]
+    public float recordingProgress = 0;
+    bool isRecording;
+
+
     private void OnEnable()
     {
         Initialize();
@@ -35,6 +41,18 @@ public class MovieRecorder : MonoBehaviour
         instance = this;
 
         DontDestroyOnLoad(this);
+    }
+
+    private void Update()
+    {
+        if (isRecording)
+        {
+            recordingProgress += 0.2f;
+            if (recordingProgress > 17)
+            {
+                recordingProgress -= 17;
+            }
+        }
     }
 
     internal void Initialize()
@@ -53,6 +71,8 @@ public class MovieRecorder : MonoBehaviour
 
     public static void StartRecording()
     {
+        instance.isRecording = true;
+        instance.recordingProgress = 0;
         instance.m_RecorderController.StartRecording();
         Debug.Log($"Started recording for file {instance.m_Settings.OutputFile}");
     }
@@ -60,6 +80,8 @@ public class MovieRecorder : MonoBehaviour
     public static void StopRecording()
     {
         instance.m_RecorderController.StopRecording();
+        instance.isRecording = false;
+        instance.recordingProgress = 16;
     }
 }
 
