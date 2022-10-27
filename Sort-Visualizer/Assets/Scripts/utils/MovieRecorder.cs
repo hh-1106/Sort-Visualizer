@@ -16,18 +16,11 @@ public class MovieRecorder : MonoBehaviour
     [Title("Movie Recorder Settings"), HideLabel]
 
     [InlineEditor(InlineEditorObjectFieldModes.Foldout)]
+    [ShowInInspector]
     public MovieRecorderSettings m_Settings = null;
 
-    public FileInfo OutputFile
-    {
-        get
-        {
-            var fileName = m_Settings.OutputFile + ".mp4";
-            return new FileInfo(fileName);
-        }
-    }
 
-    void OnEnable()
+    private void OnEnable()
     {
         Initialize();
     }
@@ -50,23 +43,23 @@ public class MovieRecorder : MonoBehaviour
         m_RecorderController = new RecorderController(controllerSettings);
 
         // Setup Recording
-        controllerSettings.AddRecorderSettings(m_Settings);
         controllerSettings.SetRecordModeToManual();
+        controllerSettings.AddRecorderSettings(m_Settings);
         controllerSettings.FrameRate = 60.0f;
 
         RecorderOptions.VerboseMode = false;
         m_RecorderController.PrepareRecording();
     }
 
-    public void StartRecording()
+    public static void StartRecording()
     {
-        m_RecorderController.StartRecording();
-        Debug.Log($"Started recording for file {OutputFile.FullName}");
+        instance.m_RecorderController.StartRecording();
+        Debug.Log($"Started recording for file {instance.m_Settings.OutputFile}");
     }
 
-    public void StopRecording()
+    public static void StopRecording()
     {
-        m_RecorderController.StopRecording();
+        instance.m_RecorderController.StopRecording();
     }
 }
 

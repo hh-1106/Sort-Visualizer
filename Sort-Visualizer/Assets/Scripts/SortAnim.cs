@@ -59,12 +59,20 @@ public class SortAnim : MonoBehaviour
             SortAlogorithmEnum.Radix => new RadixSort(),
             _ => new Shuffle(),
         };
+
+        MovieRecorder.StartRecording();
+
         sortTask = new Task(sa.Sort(av, delay), false);
 
         // 打乱结束后自动开始排序
         shuffleTask.Finished += delegate (bool manual)
         {
             sortTask.Start();
+        };
+
+        sortTask.Finished += delegate (bool manual)
+        {
+            MovieRecorder.StopRecording();
         };
     }
 
