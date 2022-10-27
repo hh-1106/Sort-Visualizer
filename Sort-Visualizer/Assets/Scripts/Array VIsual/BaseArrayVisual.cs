@@ -17,7 +17,7 @@ public class BaseArrayVisual : MonoBehaviour
     public float strokeWidth;
 
     [Title("数组长度")]
-    [OnValueChanged("Refresh")]
+    [DisableInPlayMode]
     public int n;
     [HideInInspector]
     public int[] A; // 数组
@@ -67,7 +67,7 @@ public class BaseArrayVisual : MonoBehaviour
         A[j] = temp;
     }
 
-    public virtual void InitArray()
+    public void InitArray()
     {
         A = new int[n];
         states = new int[n];
@@ -80,10 +80,10 @@ public class BaseArrayVisual : MonoBehaviour
     }
 
 
-    public virtual void UpdateObjs()
+    public void UpdateObjs()
     {
         // 生成所有待排序的物体
-        if (transform.childCount == 0)
+        if (transform.childCount != n)
         {
             for (int i = 0; i < n; i++)
             {
@@ -106,7 +106,7 @@ public class BaseArrayVisual : MonoBehaviour
         }
     }
 
-    void Refresh()
+    public void Refresh()
     {
         //? https://docs.unity3d.com/ScriptReference/Application-isPlaying.html 
         if (!Application.isPlaying) return;

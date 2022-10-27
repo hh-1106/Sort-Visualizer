@@ -21,21 +21,29 @@ public class SortAnim : MonoBehaviour
     [Range(0, 0.1f)]
     public float delay;
 
+    Task shuffleTask, sortTask;
+
     private void Start()
     {
         Application.targetFrameRate = 60;
-
         Refresh();
     }
 
     void Refresh()
     {
         if (!Application.isPlaying) return;
+        StopCurrentSort();
+        av.Refresh();
+        StartNewSort();
+    }
 
-
+    void StartNewSort()
+    {
+        // 创建打乱任务
         sa = new Shuffle();
-        Task shuffleTask = new Task(sa.Sort(av, delay), false);
+        shuffleTask = new Task(sa.Sort(av, 0));
 
+        // 创建排序任务
         sa = SAEnum switch
         {
             SortAlogorithmEnum.Bubble => new BubbleSort(),
@@ -45,21 +53,31 @@ public class SortAnim : MonoBehaviour
             SortAlogorithmEnum.Bucket => new BucketSort(),
             _ => new Shuffle(),
         };
-        Task sortTask = new Task(sa.Sort(av, delay), false);
+        sortTask = new Task(sa.Sort(av, delay), false);
 
-        shuffleTask.Start();
-
+        // 打乱结束后自动开始排序
         shuffleTask.Finished += delegate (bool manual)
         {
             sortTask.Start();
         };
+    }
+
+    void StopCurrentSort()
+    {
+        if (shuffleTask != null && shuffleTask.Running)
+        {
+            shuffleTask.Stop();
+        }
+        if (sortTask != null && sortTask.Running)
+        {
+            sortTask.Stop();
+        }
     }
 }
 
 
 public enum SortAlogorithmEnum
 {
-    Shuffle,
     Bubble,
     Heap,
     Shell,

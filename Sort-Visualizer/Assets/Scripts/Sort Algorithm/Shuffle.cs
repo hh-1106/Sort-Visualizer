@@ -11,7 +11,15 @@ public class Shuffle : SortAlgorithm
             int j = Random.Range(1, A.n);
             A.Swap(0, j);
             A.States[j] = 1;
-            yield return new WaitForSeconds(delay);
+            if (delay == 0)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+            else
+            {
+                yield return new WaitForSeconds(delay);
+
+            }
             A.States[j] = 0;
         }
     }
