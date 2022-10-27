@@ -51,6 +51,7 @@ public class SortAnim : MonoBehaviour
             SortAlogorithmEnum.Shell => new ShellSort(),
             SortAlogorithmEnum.Counting => new CountingSort(),
             SortAlogorithmEnum.Bucket => new BucketSort(),
+            SortAlogorithmEnum.Merge => new MergeSort(),
             _ => new Shuffle(),
         };
         sortTask = new Task(sa.Sort(av, delay), false);
@@ -83,4 +84,5 @@ public enum SortAlogorithmEnum
     Shell,
     Counting,
     Bucket,
+    Merge
 }

@@ -18,7 +18,6 @@ public class Shuffle : SortAlgorithm
             else
             {
                 yield return new WaitForSeconds(delay);
-
             }
             A.States[j] = 0;
         }
