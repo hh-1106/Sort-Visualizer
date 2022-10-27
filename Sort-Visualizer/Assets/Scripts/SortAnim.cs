@@ -10,7 +10,7 @@ public class SortAnim : MonoBehaviour
     [Required]
     [InlineEditor(InlineEditorObjectFieldModes.Foldout)]
     public BaseArrayVisual av;
-    SortAlgorithm sa;
+    ISortAlgorithm sa;
 
     [Title("排序算法"), HideLabel]
     [EnumToggleButtons]
@@ -52,6 +52,7 @@ public class SortAnim : MonoBehaviour
             SortAlogorithmEnum.Counting => new CountingSort(),
             SortAlogorithmEnum.Bucket => new BucketSort(),
             SortAlogorithmEnum.Merge => new MergeSort(),
+            SortAlogorithmEnum.Quick => new QuickSort(),
             _ => new Shuffle(),
         };
         sortTask = new Task(sa.Sort(av, delay), false);
@@ -84,5 +85,6 @@ public enum SortAlogorithmEnum
     Shell,
     Counting,
     Bucket,
-    Merge
+    Merge,
+    Quick,
 }

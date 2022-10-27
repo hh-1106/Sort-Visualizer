@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shuffle : SortAlgorithm
+public class Shuffle : ISortAlgorithm
 {
-    public override IEnumerator Sort(BaseArrayVisual A, float delay)
+    public IEnumerator Sort(BaseArrayVisual A, float delay)
     {
         for (int i = 0; i < A.n; i++)
         {

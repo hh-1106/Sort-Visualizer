@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BucketSort : SortAlgorithm
+public class BucketSort : ISortAlgorithm
 {
-    public override IEnumerator Sort(BaseArrayVisual A, float delay)
+    public IEnumerator Sort(BaseArrayVisual A, float delay)
     {
         // 设置10个桶
         int num = 10;

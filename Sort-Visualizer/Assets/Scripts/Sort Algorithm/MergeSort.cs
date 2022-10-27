@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MergeSort : SortAlgorithm
+public class MergeSort : ISortAlgorithm
 {
-    public override IEnumerator Sort(BaseArrayVisual A, float delay)
+    public IEnumerator Sort(BaseArrayVisual A, float delay)
     {
         yield return mergeSort(0, A.n - 1);
 

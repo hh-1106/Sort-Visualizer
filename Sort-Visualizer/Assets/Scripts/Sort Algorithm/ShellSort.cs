@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShellSort : SortAlgorithm
+public class ShellSort : ISortAlgorithm
 {
-    public override IEnumerator Sort(BaseArrayVisual A, float delay)
+    public IEnumerator Sort(BaseArrayVisual A, float delay)
     {
         for (int gap = A.n / 2; gap > 0; gap /= 2)
         {

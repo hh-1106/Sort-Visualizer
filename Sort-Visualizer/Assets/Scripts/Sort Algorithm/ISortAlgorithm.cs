@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Sirenix.OdinInspector;
 
-public abstract class SortAlgorithm
+public interface ISortAlgorithm
 {
-    public virtual IEnumerator Sort(BaseArrayVisual A, float delay)
+    public IEnumerator Sort(BaseArrayVisual A, float delay)
     {
         for (int i = 0; i < A.n; i++)
         {

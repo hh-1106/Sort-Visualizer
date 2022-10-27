@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeapSort : SortAlgorithm
+public class HeapSort : ISortAlgorithm
 {
-    public override IEnumerator Sort(BaseArrayVisual A, float delay)
+    public IEnumerator Sort(BaseArrayVisual A, float delay)
     {
         yield return buildMaxHeap(A, delay);
 

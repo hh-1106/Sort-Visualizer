@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   av: {fileID: 327060315}
-  SAEnum: 4
+  SAEnum: 6
   delay: 0.05
 --- !u!114 &327060315 stripped
 MonoBehaviour:
