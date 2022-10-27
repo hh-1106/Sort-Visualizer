@@ -53,6 +53,8 @@ public class SortAnim : MonoBehaviour
             SortAlogorithmEnum.Bucket => new BucketSort(),
             SortAlogorithmEnum.Merge => new MergeSort(),
             SortAlogorithmEnum.Quick => new QuickSort(),
+            SortAlogorithmEnum.Insertion => new InsertionSort(),
+            SortAlogorithmEnum.Radix => new RadixSort(),
             _ => new Shuffle(),
         };
         sortTask = new Task(sa.Sort(av, delay), false);
@@ -87,4 +89,6 @@ public enum SortAlogorithmEnum
     Bucket,
     Merge,
     Quick,
+    Insertion,
+    Radix
 }

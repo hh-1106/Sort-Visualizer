@@ -159,16 +159,28 @@ PrefabInstance:
       value: 0.34509805
       objectReference: {fileID: 0}
     - target: {fileID: 5927265941454967008, guid: b0245982b47b63a4babf836bfa713197, type: 3}
-      propertyPath: palette.Array.data[3].b
+      propertyPath: palette.Array.data[2].b
       value: 0.454902
       objectReference: {fileID: 0}
     - target: {fileID: 5927265941454967008, guid: b0245982b47b63a4babf836bfa713197, type: 3}
-      propertyPath: palette.Array.data[3].g
+      propertyPath: palette.Array.data[2].g
       value: 0.37254903
       objectReference: {fileID: 0}
     - target: {fileID: 5927265941454967008, guid: b0245982b47b63a4babf836bfa713197, type: 3}
-      propertyPath: palette.Array.data[3].r
+      propertyPath: palette.Array.data[2].r
       value: 0.77647066
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927265941454967008, guid: b0245982b47b63a4babf836bfa713197, type: 3}
+      propertyPath: palette.Array.data[3].b
+      value: 0.92156863
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927265941454967008, guid: b0245982b47b63a4babf836bfa713197, type: 3}
+      propertyPath: palette.Array.data[3].g
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927265941454967008, guid: b0245982b47b63a4babf836bfa713197, type: 3}
+      propertyPath: palette.Array.data[3].r
+      value: 0.14901961
       objectReference: {fileID: 0}
     - target: {fileID: 5927265941454967008, guid: b0245982b47b63a4babf836bfa713197, type: 3}
       propertyPath: palette.Array.data[4].b
@@ -294,7 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   av: {fileID: 327060315}
-  SAEnum: 6
+  SAEnum: 8
   delay: 0.05
 --- !u!114 &327060315 stripped
 MonoBehaviour:
