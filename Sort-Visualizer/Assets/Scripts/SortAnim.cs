@@ -9,7 +9,7 @@ public class SortAnim : MonoBehaviour
     [Title("渲染算法"), HideLabel]
     [Required]
     [InlineEditor(InlineEditorObjectFieldModes.Foldout)]
-    public ArrayVisual av;
+    public BaseArrayVisual av;
     SortAlgorithm sa;
 
     [Title("排序算法"), HideLabel]

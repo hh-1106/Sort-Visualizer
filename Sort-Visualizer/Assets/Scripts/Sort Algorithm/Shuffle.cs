@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shuffle : SortAlgorithm
 {
-    public override IEnumerator Sort(ArrayVisual A, float delay)
+    public override IEnumerator Sort(BaseArrayVisual A, float delay)
     {
         for (int i = 0; i < A.n; i++)
         {

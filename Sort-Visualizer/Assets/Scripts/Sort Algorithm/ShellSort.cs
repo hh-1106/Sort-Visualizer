@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShellSort : SortAlgorithm
 {
-    public override IEnumerator Sort(ArrayVisual A, float delay)
+    public override IEnumerator Sort(BaseArrayVisual A, float delay)
     {
         for (int gap = A.n / 2; gap > 0; gap /= 2)
         {

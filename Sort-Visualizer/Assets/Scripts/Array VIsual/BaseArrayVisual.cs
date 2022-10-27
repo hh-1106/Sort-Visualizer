@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-public class ArrayVisual : MonoBehaviour
+public class BaseArrayVisual : MonoBehaviour
 {
 
     [Title("显示区域")]
@@ -67,38 +67,8 @@ public class ArrayVisual : MonoBehaviour
         A[j] = temp;
     }
 
-
-    void UpdateObjs()
+    public virtual void InitArray()
     {
-        bool needReset = transform.childCount == 0;
-
-        for (int i = 0; i < n; i++)
-        {
-            float x = Mathf.Lerp(-pannelWidth / 2f, pannelWidth / 2f, (i + .5f) / (float)n);
-            float h = Mathf.Lerp(0, pannelHeight, A[i] / (float)n);
-
-            GameObject e;
-
-            if (needReset)
-            {
-                e = Instantiate(arrayElementPrefab);
-                e.transform.parent = transform;
-                e.transform.position = new Vector3(x, 0, 0);
-            }
-            else
-            {
-                e = transform.GetChild(i).gameObject;
-            }
-
-            e.transform.localScale = new Vector3(strokeWidth, h, 0);
-            e.GetComponent<SpriteRenderer>().color = palette[States[i]];
-        }
-    }
-
-    void Refresh()
-    {
-        if (!Application.isPlaying) return;
-
         A = new int[n];
         states = new int[n];
 
@@ -107,8 +77,41 @@ public class ArrayVisual : MonoBehaviour
             A[i] = n - i;
             states[i] = 0;
         }
-
-        UpdateObjs();
     }
 
+
+    public virtual void UpdateObjs()
+    {
+        // 生成所有待排序的物体
+        if (transform.childCount == 0)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                var e = Instantiate(arrayElementPrefab);
+                e.transform.parent = transform;
+            }
+        }
+
+        // 修改待排序物体的物理状态
+        for (int i = 0; i < n; i++)
+        {
+            var e = transform.GetChild(i).gameObject;
+
+            float x = Mathf.Lerp(-pannelWidth / 2f, pannelWidth / 2f, (i + .5f) / (float)n);
+            float h = Mathf.Lerp(0, pannelHeight, A[i] / (float)n);
+
+            e.transform.position = new Vector3(x, 0, 0);
+            e.transform.localScale = new Vector3(strokeWidth, h, 0);
+            e.GetComponent<SpriteRenderer>().color = palette[States[i]];
+        }
+    }
+
+    void Refresh()
+    {
+        //? https://docs.unity3d.com/ScriptReference/Application-isPlaying.html 
+        if (!Application.isPlaying) return;
+
+        InitArray();
+        UpdateObjs();
+    }
 }

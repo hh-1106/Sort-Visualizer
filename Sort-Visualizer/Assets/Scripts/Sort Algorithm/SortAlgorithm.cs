@@ -5,7 +5,7 @@ using Sirenix.OdinInspector;
 
 public abstract class SortAlgorithm
 {
-    public virtual IEnumerator Sort(ArrayVisual A, float delay)
+    public virtual IEnumerator Sort(BaseArrayVisual A, float delay)
     {
         for (int i = 0; i < A.n; i++)
         {

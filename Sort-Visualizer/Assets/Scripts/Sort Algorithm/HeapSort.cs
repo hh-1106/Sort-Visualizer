@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HeapSort : SortAlgorithm
 {
-    public override IEnumerator Sort(ArrayVisual A, float delay)
+    public override IEnumerator Sort(BaseArrayVisual A, float delay)
     {
         yield return buildMaxHeap(A, delay);
 
@@ -18,7 +18,7 @@ public class HeapSort : SortAlgorithm
         }
     }
 
-    private IEnumerator buildMaxHeap(ArrayVisual A, float delay)
+    private IEnumerator buildMaxHeap(BaseArrayVisual A, float delay)
     {
         for (int i = A.n / 2 - 1; i >= 0; i--)
         {
@@ -28,7 +28,7 @@ public class HeapSort : SortAlgorithm
 
     // 用于维护最大堆性质
     // 让A[i]的值在最大堆中 逐级下降
-    private IEnumerator maxHeapify(ArrayVisual A, int n, int i, float delay)
+    private IEnumerator maxHeapify(BaseArrayVisual A, int n, int i, float delay)
     {
         int root = i;
         int l = i * 2 + 1;  // left

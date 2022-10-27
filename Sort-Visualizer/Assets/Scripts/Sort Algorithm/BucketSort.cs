@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BucketSort : SortAlgorithm
 {
-    public override IEnumerator Sort(ArrayVisual A, float delay)
+    public override IEnumerator Sort(BaseArrayVisual A, float delay)
     {
         // 设置10个桶
         int num = 10;

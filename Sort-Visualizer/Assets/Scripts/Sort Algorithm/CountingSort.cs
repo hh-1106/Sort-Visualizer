@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CountingSort : SortAlgorithm
 {
-    public override IEnumerator Sort(ArrayVisual A, float delay)
+    public override IEnumerator Sort(BaseArrayVisual A, float delay)
     {
         // 存放排序的输出数组
         int[] B = new int[A.n];
@@ -22,7 +22,7 @@ public class CountingSort : SortAlgorithm
         }
     }
 
-    IEnumerator countingSort(ArrayVisual A, int[] B, int k, float delay)
+    IEnumerator countingSort(BaseArrayVisual A, int[] B, int k, float delay)
     {
         // 计数数组C初始化全0
         int[] C = new int[k + 1];
