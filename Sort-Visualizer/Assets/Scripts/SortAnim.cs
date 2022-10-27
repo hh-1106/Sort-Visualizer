@@ -6,18 +6,20 @@ using Sirenix.OdinInspector;
 
 public class SortAnim : MonoBehaviour
 {
-    [Title("渲染算法"), HideLabel]
     [Required]
+    [Title("渲染方案"), HideLabel]
     [InlineEditor(InlineEditorObjectFieldModes.Foldout)]
     public BaseArrayVisual av;
     ISortAlgorithm sa;
+
+    [Space(10)]
 
     [Title("排序算法"), HideLabel]
     [EnumToggleButtons]
     [OnValueChanged("Refresh")]
     public SortAlogorithmEnum SAEnum;
 
-    [LabelText("时间步长")]
+    [Title("动画"), LabelText("时间步长")]
     [Range(0, 0.1f)]
     public float delay;
 
@@ -82,13 +84,13 @@ public class SortAnim : MonoBehaviour
 
 public enum SortAlogorithmEnum
 {
+    Insertion,
     Bubble,
-    Heap,
-    Shell,
-    Counting,
-    Bucket,
     Merge,
     Quick,
-    Insertion,
-    Radix
+    Heap,
+    Bucket,
+    Shell,
+    Radix,
+    Counting,
 }

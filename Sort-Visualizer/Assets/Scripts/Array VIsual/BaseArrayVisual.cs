@@ -10,20 +10,21 @@ public class BaseArrayVisual : MonoBehaviour
     public float pannelWidth;
     public float pannelHeight;
 
-    [Title("数组元素")]
+    [Title("数组"), LabelText("元素")]
     public GameObject arrayElementPrefab;
 
+    [LabelText("宽度")]
     [Range(0, 1)]
     public float strokeWidth;
 
-    [Title("数组长度")]
+    [LabelText("数量")]
     [DisableInPlayMode]
     public int n;
     [HideInInspector]
     public int[] A; // 数组
     int[] states;   // 数组每个元素的状态
 
-    [Title("配色版")]
+    [Title("配色板")]
     public Color[] palette;
 
     public int this[int i]
