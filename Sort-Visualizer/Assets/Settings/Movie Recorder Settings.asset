@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 53
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -21,7 +21,7 @@ MonoBehaviour:
       m_Leaf: Recordings
       m_ForceAssetFolder: 0
       m_AbsolutePath: 
-    m_FileName: sort_<Take>
+    m_FileName: movie_<Take>
   outputFormat: 0
   videoBitRateMode: 2
   captureAlpha: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
         m_CustomWidth: 1024
         m_CustomHeight: 1024
         imageHeight: 0
-        maxSupportedHeight: 4320
+        maxSupportedHeight: 2160
         m_AspectRatio:
           m_CustomAspectX: 1
           m_CustomAspectY: 1
@@ -91,11 +91,11 @@ MonoBehaviour:
   m_AudioInputSettings:
     preserveAudio: 0
   _accumulationSettings:
-    rid: 8586833493321842697
+    rid: 8586833497478397953
   references:
     version: 2
     RefIds:
-    - rid: 8586833493321842697
+    - rid: 8586833497478397953
       type: {class: AccumulationSettings, ns: , asm: Unity.Recorder.Editor}
       data:
         captureAccumulation: 0

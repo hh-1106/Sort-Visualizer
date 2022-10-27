@@ -88,7 +88,7 @@ public class BaseArrayVisual : MonoBehaviour
         {
             for (int i = 0; i < n; i++)
             {
-                var e = Instantiate(arrayElementPrefab);
+                GameObject e = Instantiate(arrayElementPrefab) as GameObject;
                 e.transform.parent = transform;
             }
         }

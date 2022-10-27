@@ -11,7 +11,7 @@ public class Shuffle : ISortAlgorithm
             int j = Random.Range(1, A.n);
             A.Swap(0, j);
             A.States[j] = 1;
-            if (delay == 0)
+            if (delay < 0)
             {
                 yield return new WaitForEndOfFrame();
             }

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0888db1d9f84d6da3b0d5de41f42c2d, type: 3}
+  m_Name: Recorder Controller Settings
+  m_EditorClassIdentifier: 
+  m_RecordMode: 0
+  m_FrameRatePlayback: 0
+  m_FrameRateType: 8
+  m_CustomFrameRateValue: 60
+  m_StartFrame: 0
+  m_EndFrame: 0
+  m_StartTime: 0
+  m_EndTime: 0
+  m_CapFrameRate: 0
+  m_RecorderSettings:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: eef6c27e885ea0749b2a9cfe7790561c, type: 2}

@@ -7,6 +7,7 @@ using Sirenix.OdinInspector;
 public class SortAnim : MonoBehaviour
 {
     [Required]
+    [SceneObjectsOnly]
     [Title("渲染方案"), HideLabel]
     [InlineEditor(InlineEditorObjectFieldModes.Foldout)]
     public BaseArrayVisual av;
@@ -23,6 +24,10 @@ public class SortAnim : MonoBehaviour
     [Range(0, 0.1f)]
     public float delay;
 
+    [LabelText("开启录制")]
+    [DisableInPlayMode]
+    public bool enableRecord;
+
     Task shuffleTask, sortTask;
 
     private void Start()
@@ -34,6 +39,7 @@ public class SortAnim : MonoBehaviour
     void Refresh()
     {
         if (!Application.isPlaying) return;
+
         StopCurrentSort();
         av.Refresh();
         StartNewSort();
@@ -43,7 +49,7 @@ public class SortAnim : MonoBehaviour
     {
         // 创建打乱任务
         sa = new Shuffle();
-        shuffleTask = new Task(sa.Sort(av, 0));
+        shuffleTask = new Task(sa.Sort(av, -1));
 
         // 创建排序任务
         sa = SAEnum switch
@@ -59,20 +65,25 @@ public class SortAnim : MonoBehaviour
             SortAlogorithmEnum.Radix => new RadixSort(),
             _ => new Shuffle(),
         };
-
-        MovieRecorder.StartRecording();
-
         sortTask = new Task(sa.Sort(av, delay), false);
 
+
+        if (enableRecord)
+        {
+            MovieRecorder.StartRecording();
+        }
         // 打乱结束后自动开始排序
         shuffleTask.Finished += delegate (bool manual)
         {
+            Debug.Log("shuffle finished");
             sortTask.Start();
+            Debug.Log("sort start");
         };
 
         sortTask.Finished += delegate (bool manual)
         {
-            MovieRecorder.StopRecording();
+            Debug.Log("sort finished");
+            if (enableRecord) { MovieRecorder.StopRecording(); }
         };
     }
 
