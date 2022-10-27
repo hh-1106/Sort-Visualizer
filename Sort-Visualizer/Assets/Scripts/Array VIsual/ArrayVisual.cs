@@ -17,6 +17,7 @@ public class ArrayVisual : MonoBehaviour
     public float strokeWidth;
 
     [Title("数组长度")]
+    [OnValueChanged("Refresh")]
     public int n;
     [HideInInspector]
     public int[] A; // 数组
@@ -51,27 +52,12 @@ public class ArrayVisual : MonoBehaviour
 
     private void Awake()
     {
-        A = new int[n];
-        states = new int[n];
-
-        for (int i = 0; i < n; i++)
-        {
-            A[i] = n - i;
-            states[i] = 0;
-        }
-
-        InitObjs();
+        Refresh();
     }
 
     private void Update()
     {
-        for (int i = 0; i < n; i++)
-        {
-            var e = transform.GetChild(i);
-            float h = Mathf.Lerp(0, pannelHeight, A[i] / (float)n);
-            e.transform.localScale = new Vector3(strokeWidth, h, 0);
-            e.GetComponent<SpriteRenderer>().color = palette[states[i]];
-        }
+        UpdateObjs();
     }
 
     public void Swap(int i, int j)
@@ -82,20 +68,47 @@ public class ArrayVisual : MonoBehaviour
     }
 
 
-    void InitObjs()
+    void UpdateObjs()
     {
+        bool needReset = transform.childCount == 0;
+
         for (int i = 0; i < n; i++)
         {
-            var e = Instantiate(arrayElementPrefab);
-            e.transform.parent = transform;
-
             float x = Mathf.Lerp(-pannelWidth / 2f, pannelWidth / 2f, (i + .5f) / (float)n);
             float h = Mathf.Lerp(0, pannelHeight, A[i] / (float)n);
 
-            e.transform.position = new Vector3(x, 0, 0);
+            GameObject e;
+
+            if (needReset)
+            {
+                e = Instantiate(arrayElementPrefab);
+                e.transform.parent = transform;
+                e.transform.position = new Vector3(x, 0, 0);
+            }
+            else
+            {
+                e = transform.GetChild(i).gameObject;
+            }
+
             e.transform.localScale = new Vector3(strokeWidth, h, 0);
-            e.GetComponent<SpriteRenderer>().color = palette[0];
+            e.GetComponent<SpriteRenderer>().color = palette[States[i]];
         }
+    }
+
+    void Refresh()
+    {
+        if (!Application.isPlaying) return;
+
+        A = new int[n];
+        states = new int[n];
+
+        for (int i = 0; i < n; i++)
+        {
+            A[i] = n - i;
+            states[i] = 0;
+        }
+
+        UpdateObjs();
     }
 
 }
