@@ -8,7 +8,6 @@ using Sirenix.OdinInspector;
 
 public class MovieRecorder : MonoBehaviour
 {
-    public static MovieRecorder instance;
 
     RecorderController m_RecorderController;
 
@@ -22,26 +21,9 @@ public class MovieRecorder : MonoBehaviour
     [ShowInInspector]
     public MovieRecorderSettings m_Settings = null;
 
-    void OnEnable()
+    void Start()
     {
         Initialize();
-    }
-
-    void OnDisable()
-    {
-        instance = null;
-    }
-
-    private void Awake()
-    {
-        if (instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        instance = this;
-
-        DontDestroyOnLoad(this);
     }
 
     internal void Initialize()
@@ -52,19 +34,25 @@ public class MovieRecorder : MonoBehaviour
         controllerSettings.SetRecordModeToManual();
         controllerSettings.AddRecorderSettings(m_Settings);
 
-        RecorderOptions.VerboseMode = false;
+        RecorderOptions.VerboseMode = true;
     }
 
-    public static void StartRecording()
+    public void StartRecording()
     {
-        instance.m_RecorderController.PrepareRecording();
-        instance.m_RecorderController.StartRecording();
-        Debug.Log($"Started recording for file {instance.m_Settings.OutputFile}");
+        if (m_RecorderController.IsRecording())
+        {
+            StopRecording();
+        }
+        m_RecorderController.PrepareRecording();
+        m_RecorderController.StartRecording();
     }
 
-    public static void StopRecording()
+    public void StopRecording()
     {
-        instance.m_RecorderController.StopRecording();
+        if (m_RecorderController.IsRecording())
+        {
+            m_RecorderController.StopRecording();
+        }
     }
 }
 

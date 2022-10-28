@@ -24,9 +24,12 @@ public class SortAnim : MonoBehaviour
     [Range(0, 0.1f)]
     public float delay;
 
-    [LabelText("开启录制")]
-    // [DisableInPlayMode]
+    [Title("录制"), LabelText("Enable Record")]
+    [DisableInPlayMode]
     public bool enableRecord;
+
+    [ShowIf("enableRecord")]
+    public MovieRecorder recorder = null;
 
     Task shuffleTask, sortTask;
 
@@ -68,22 +71,20 @@ public class SortAnim : MonoBehaviour
         sortTask = new Task(sa.Sort(av, delay), false);
 
 
-        if (enableRecord)
-        {
-            // MovieRecorder.StartRecording();
-        }
-        // 打乱结束后自动开始排序
-        shuffleTask.Finished += delegate (bool manual)
-        {
-            Debug.Log("shuffle finished");
-            sortTask.Start();
-            Debug.Log("sort start");
-        };
+        // 开始录制
+        if (enableRecord) { recorder.StartRecording(); }
 
+        // 打乱结束后自动开始排序
+        shuffleTask.Finished += delegate (bool manual) { sortTask.Start(); };
+
+        // 排序正常结束后停止录制
         sortTask.Finished += delegate (bool manual)
         {
-            Debug.Log("sort finished");
-            // if (enableRecord) { MovieRecorder.StopRecording(); }
+            if (enableRecord && !manual)
+            {
+                Debug.Log("sort finished, and ready to stop record.");
+                recorder.StopRecording();
+            }
         };
     }
 
@@ -99,7 +100,6 @@ public class SortAnim : MonoBehaviour
         }
     }
 }
-
 
 public enum SortAlogorithmEnum
 {

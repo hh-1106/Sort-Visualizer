@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5927265941454967008, guid: b0245982b47b63a4babf836bfa713197, type: 3}
       propertyPath: n
-      value: 64
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 5927265941454967010, guid: b0245982b47b63a4babf836bfa713197, type: 3}
       propertyPath: m_Name
@@ -189,52 +189,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5927265941454967011, guid: b0245982b47b63a4babf836bfa713197, type: 3}
   m_PrefabInstance: {fileID: 92717475}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &270330203
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 270330204}
-  - component: {fileID: 270330205}
-  m_Layer: 0
-  m_Name: Movie Recorder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &270330204
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 270330203}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &270330205
+--- !u!114 &270330205 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1786609399891984233, guid: 46db3cfc7ef6e5f45a49ba15807bdfdf, type: 3}
+  m_PrefabInstance: {fileID: 1786609400160687668}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 270330203}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ce9aee627608a44990fa8a0da59208f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerSettings: {fileID: 11400000, guid: c5907e7e87e4f614ca4b8ba50cd23336, type: 2}
-  m_Settings: {fileID: 11400000, guid: eef6c27e885ea0749b2a9cfe7790561c, type: 2}
 --- !u!1 &302681489
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,8 +246,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   av: {fileID: 656667271}
   SAEnum: 6
-  delay: 0.05
-  enableRecord: 0
+  delay: 0.01
+  enableRecord: 1
+  recorder: {fileID: 270330205}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,7 +467,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1897533146
 MonoBehaviour:
@@ -520,3 +486,60 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!1001 &1786609400160687668
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1786609399891984232, guid: 46db3cfc7ef6e5f45a49ba15807bdfdf, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786609399891984232, guid: 46db3cfc7ef6e5f45a49ba15807bdfdf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786609399891984232, guid: 46db3cfc7ef6e5f45a49ba15807bdfdf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786609399891984232, guid: 46db3cfc7ef6e5f45a49ba15807bdfdf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786609399891984232, guid: 46db3cfc7ef6e5f45a49ba15807bdfdf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786609399891984232, guid: 46db3cfc7ef6e5f45a49ba15807bdfdf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786609399891984232, guid: 46db3cfc7ef6e5f45a49ba15807bdfdf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786609399891984232, guid: 46db3cfc7ef6e5f45a49ba15807bdfdf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786609399891984232, guid: 46db3cfc7ef6e5f45a49ba15807bdfdf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786609399891984232, guid: 46db3cfc7ef6e5f45a49ba15807bdfdf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786609399891984232, guid: 46db3cfc7ef6e5f45a49ba15807bdfdf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786609399891984239, guid: 46db3cfc7ef6e5f45a49ba15807bdfdf, type: 3}
+      propertyPath: m_Name
+      value: Movie Recorder
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 46db3cfc7ef6e5f45a49ba15807bdfdf, type: 3}
