@@ -10,7 +10,7 @@ public class SortAnim : MonoBehaviour
     [SceneObjectsOnly]
     [Title("渲染方案"), HideLabel]
     [InlineEditor(InlineEditorObjectFieldModes.Foldout)]
-    public TriangleArrayVisual av;
+    public ArrayVisual av;
     ISortAlgorithm sa;
 
     [Space(10)]

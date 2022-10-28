@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RadixSort : ISortAlgorithm
 {
-    public IEnumerator Sort(TriangleArrayVisual A, float delay)
+    public IEnumerator Sort(ArrayVisual A, float delay)
     {
         int max = 0;
         for (int i = 0; i < A.n; i++) max = Mathf.Max(max, A[i]);

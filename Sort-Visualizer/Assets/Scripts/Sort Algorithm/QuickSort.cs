@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class QuickSort : ISortAlgorithm
 {
-    public IEnumerator Sort(TriangleArrayVisual A, float delay)
+    public IEnumerator Sort(ArrayVisual A, float delay)
     {
 
         yield return randomizedQuickSort(0, A.n - 1);
