@@ -70,6 +70,8 @@ public class BaseArrayVisual : MonoBehaviour
 
     public void InitArray()
     {
+        Debug.Log("initArray");
+
         A = new int[n];
         states = new int[n];
 
@@ -79,7 +81,6 @@ public class BaseArrayVisual : MonoBehaviour
             states[i] = 0;
         }
     }
-
 
     public void UpdateObjs()
     {

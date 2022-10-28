@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5927265941454967008, guid: b0245982b47b63a4babf836bfa713197, type: 3}
       propertyPath: n
-      value: 32
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 5927265941454967010, guid: b0245982b47b63a4babf836bfa713197, type: 3}
       propertyPath: m_Name
@@ -245,9 +245,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   av: {fileID: 656667271}
-  SAEnum: 2
+  SAEnum: 1
   delay: 0.01
-  enableRecord: 1
+  enableRecord: 0
   recorder: {fileID: 270330205}
 --- !u!1 &519420028
 GameObject:

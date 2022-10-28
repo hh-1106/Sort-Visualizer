@@ -34,6 +34,9 @@ public class SortAnim : MonoBehaviour
 
     Task shuffleTask, sortTask;
 
+    [ShowInInspector]
+    bool sorting;
+
     private void Start()
     {
         Application.targetFrameRate = 60;
@@ -77,14 +80,16 @@ public class SortAnim : MonoBehaviour
         if (enableRecord) { recorder.StartRecording(); }
 
         // 打乱结束后自动开始排序
-        shuffleTask.Finished += delegate (bool manual) { sortTask.Start(); };
+        shuffleTask.Finished += delegate (bool manual)
+        {
+            sortTask.Start();
+        };
 
         // 排序正常结束后停止录制
         sortTask.Finished += delegate (bool manual)
         {
             if (enableRecord && !manual)
             {
-                Debug.Log("sort finished, and ready to stop record.");
                 recorder.StopRecording();
             }
         };
@@ -95,11 +100,18 @@ public class SortAnim : MonoBehaviour
         if (shuffleTask != null && shuffleTask.Running)
         {
             shuffleTask.Stop();
+            Debug.Log("stop shuffle");
         }
         if (sortTask != null && sortTask.Running)
         {
             sortTask.Stop();
+            Debug.Log("stop sort");
         }
+    }
+
+    private void Update()
+    {
+        sorting = sortTask.Running;
     }
 }
 
