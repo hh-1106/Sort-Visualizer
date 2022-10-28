@@ -82,7 +82,7 @@ public class BaseArrayVisual : MonoBehaviour
         }
     }
 
-    public void UpdateObjs()
+    public virtual void UpdateObjs()
     {
         // 生成所有待排序的物体
         if (transform.childCount != n)

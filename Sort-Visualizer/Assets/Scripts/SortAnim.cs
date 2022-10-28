@@ -49,7 +49,6 @@ public class SortAnim : MonoBehaviour
 
         StopCurrentSort();
         av.Refresh();
-
         StartNewSort();
     }
 
