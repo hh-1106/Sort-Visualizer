@@ -27,6 +27,11 @@ public class MovieRecorder : MonoBehaviour
         Initialize();
     }
 
+    void OnDisable()
+    {
+        instance = null;
+    }
+
     private void Awake()
     {
         if (instance != null)
@@ -46,7 +51,6 @@ public class MovieRecorder : MonoBehaviour
         // Setup Recording
         controllerSettings.SetRecordModeToManual();
         controllerSettings.AddRecorderSettings(m_Settings);
-        controllerSettings.FrameRate = 60.0f;
 
         RecorderOptions.VerboseMode = false;
     }

@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   av: {fileID: 656667271}
-  SAEnum: 2
+  SAEnum: 6
   delay: 0.05
   enableRecord: 0
 --- !u!1 &519420028
