@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InsertionSort : ISortAlgorithm
 {
-    public IEnumerator Sort(BaseArrayVisual A, float delay)
+    public IEnumerator Sort(TriangleArrayVisual A, float delay)
     {
         for (int j = 1; j < A.n; j++)
         {

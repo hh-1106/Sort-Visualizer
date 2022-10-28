@@ -3,12 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-public class BaseArrayVisual : MonoBehaviour
+public class ArrayVisual : MonoBehaviour
 {
-
-    [Title("显示区域")]
-    public float pannelWidth;
-    public float pannelHeight;
 
     [Title("数组"), LabelText("元素")]
     public GameObject arrayElementPrefab;
@@ -84,28 +80,6 @@ public class BaseArrayVisual : MonoBehaviour
 
     public virtual void UpdateObjs()
     {
-        // 生成所有待排序的物体
-        if (transform.childCount != n)
-        {
-            for (int i = 0; i < n; i++)
-            {
-                GameObject e = Instantiate(arrayElementPrefab) as GameObject;
-                e.transform.parent = transform;
-            }
-        }
-
-        // 修改待排序物体的物理状态
-        for (int i = 0; i < n; i++)
-        {
-            var e = transform.GetChild(i).gameObject;
-
-            float x = Mathf.Lerp(-pannelWidth / 2f, pannelWidth / 2f, (i + .5f) / (float)n);
-            float h = Mathf.Lerp(0, pannelHeight, A[i] / (float)n);
-
-            e.transform.position = new Vector3(x, 0, 0);
-            e.transform.localScale = new Vector3(strokeWidth, h, 0);
-            e.GetComponent<SpriteRenderer>().color = palette[States[i]];
-        }
     }
 
     public void Refresh()

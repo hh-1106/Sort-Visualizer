@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BucketSort : ISortAlgorithm
 {
-    public IEnumerator Sort(BaseArrayVisual A, float delay)
+    public IEnumerator Sort(TriangleArrayVisual A, float delay)
     {
         // 设置10个桶
         int num = 10;
