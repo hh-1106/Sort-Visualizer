@@ -29,6 +29,7 @@ public class SortAnim : MonoBehaviour
     public bool enableRecord;
 
     [ShowIf("enableRecord")]
+    [InlineEditor(InlineEditorObjectFieldModes.Foldout)]
     public MovieRecorder recorder = null;
 
     Task shuffleTask, sortTask;
@@ -45,6 +46,7 @@ public class SortAnim : MonoBehaviour
 
         StopCurrentSort();
         av.Refresh();
+
         StartNewSort();
     }
 

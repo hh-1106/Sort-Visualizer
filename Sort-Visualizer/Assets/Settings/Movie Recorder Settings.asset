@@ -39,7 +39,7 @@ MonoBehaviour:
       m_OutputResolution:
         m_CustomWidth: 1024
         m_CustomHeight: 1024
-        imageHeight: 480
+        imageHeight: 1080
         maxSupportedHeight: 2160
         m_AspectRatio:
           m_CustomAspectX: 1

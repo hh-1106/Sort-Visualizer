@@ -31,8 +31,8 @@ public class MovieRecorder : MonoBehaviour
         m_RecorderController = new RecorderController(controllerSettings);
 
         // Setup Recording
-        controllerSettings.SetRecordModeToManual();
         controllerSettings.AddRecorderSettings(m_Settings);
+        controllerSettings.SetRecordModeToManual();
 
         RecorderOptions.VerboseMode = true;
     }
@@ -43,6 +43,8 @@ public class MovieRecorder : MonoBehaviour
         {
             StopRecording();
         }
+
+        Initialize();
         m_RecorderController.PrepareRecording();
         m_RecorderController.StartRecording();
     }
