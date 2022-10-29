@@ -28,10 +28,6 @@ public class SortAnim : MonoBehaviour
     [DisableInPlayMode]
     public bool enableRecord;
 
-    [ShowIf("enableRecord")]
-    [InlineEditor(InlineEditorObjectFieldModes.Foldout)]
-    public MovieRecorder recorder = null;
-
     Task shuffleTask, sortTask;
 
     [ShowInInspector]
@@ -76,7 +72,7 @@ public class SortAnim : MonoBehaviour
 
 
         // 开始录制
-        if (enableRecord) { recorder.StartRecording(); }
+        if (enableRecord) { MovieRecorder.Instance.StartRecording(); }
 
         // 打乱结束后自动开始排序
         shuffleTask.Finished += delegate (bool manual)
@@ -89,7 +85,7 @@ public class SortAnim : MonoBehaviour
         {
             if (enableRecord && !manual)
             {
-                recorder.StopRecording();
+                MovieRecorder.Instance.StopRecording();
             }
         };
     }

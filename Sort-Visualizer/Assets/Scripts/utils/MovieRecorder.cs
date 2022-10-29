@@ -6,7 +6,7 @@ using UnityEditor.Recorder.Input;
 using UnityEditor;
 using Sirenix.OdinInspector;
 
-public class MovieRecorder : MonoBehaviour
+public class MovieRecorder : Singleton<MovieRecorder>
 {
 
     RecorderController m_RecorderController;
@@ -21,7 +21,7 @@ public class MovieRecorder : MonoBehaviour
     [ShowInInspector]
     public MovieRecorderSettings m_Settings = null;
 
-    void Start()
+    private void Start()
     {
         Initialize();
     }
