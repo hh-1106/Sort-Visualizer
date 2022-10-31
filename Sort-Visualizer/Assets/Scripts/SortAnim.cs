@@ -31,6 +31,7 @@ public class SortAnim : MonoBehaviour
     Task shuffleTask, sortTask;
 
     [ShowInInspector]
+    [ReadOnly]
     bool sorting;
 
     private void Start()

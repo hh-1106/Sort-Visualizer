@@ -170,7 +170,7 @@ MonoBehaviour:
   av: {fileID: 2059303922}
   SAEnum: 6
   delay: 0.03
-  enableRecord: 1
+  enableRecord: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
