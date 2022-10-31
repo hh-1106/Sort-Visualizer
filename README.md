@@ -41,6 +41,10 @@ Sort-Visualizer
 README.md
 ```
 
+
+@import "docs/imgs/1.png"
+
+
 ## ⚡️ 使用
 1. 在 `Project` 窗口中打开 `Assets > Scenes > Sort Visualizer` 场景
 2. 在 `Hierarchy` 窗口中选中 `Sort Anim` 对象
