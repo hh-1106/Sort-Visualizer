@@ -49,3 +49,5 @@ README.md
    - `排序算法` 默认提供了9种算法实现，点击选择
    - `动画` 设置动画参数
    - `录制` 选择是否开启录制
+
+![2](https://github.com/homeless-honey/Sort-Visualizer/blob/main/docs/imgs/1.png)
