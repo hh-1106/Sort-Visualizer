@@ -17,7 +17,7 @@ public class ArrayVisual : MonoBehaviour
 
     [LabelText("数量")]
     [Range(0, 128)]
-    [DisableInPlayMode]
+    // [DisableInPlayMode]
     [OnValueChanged("Refresh")]
     public int n;
 

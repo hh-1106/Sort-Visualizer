@@ -1,7 +1,9 @@
 <h1 align='center'> Sort-Visualizer </h1>
 
 <p align="center">
+<font size="4">
   这是一个基于 Unity 的<b>排序算法</b>可视化框架
+</font>
 </p>
 
 
@@ -46,7 +48,7 @@ docs
 ## ⚡️ 使用
 
 <img src="https://github.com/homeless-honey/Sort-Visualizer/blob/main/docs/imgs/1.png?raw=true"
-width=35%
+width=40%
 hspace=5%
 align="right"> 
 
@@ -69,7 +71,7 @@ align="right">
 ## ⏺️ 自定义录制
 
 <img src="https://github.com/homeless-honey/Sort-Visualizer/blob/main/docs/imgs/2.png?raw=true"
-width=35%
+width=40%
 hspace=5%
 align="right"> 
 
@@ -118,7 +120,7 @@ public class ArrayVisual : MonoBehaviour
         UpdateObjs();
     }
 
-    // 初始化数组
+    // 初始化数组，逆序
     protected virtual void InitArray()
     {
         A = new int[n];
@@ -136,4 +138,41 @@ public class ArrayVisual : MonoBehaviour
 }
 
 ```
-不难发现，（明天再写）
+不难发现，我们的 `ArrayVisual` 拥有将数组可视化的能力，它会在 `Update` 中不断地根据数组信息同步视觉呈现。至于如何修改数组，那是 `Sort Algorithm` 的事。现在让我们专注到数组最初的样子吧。
+
+#### TriangleArrayVisual
+```csharp
+public class TriangleArrayVisual : ArrayVisual
+{
+    public float pannelWidth;
+    public float pannelHeight;
+
+    protected override void UpdateObjs()
+    {
+        // 生成所有待排序的物体
+        if (transform.childCount != n)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                GameObject e = Instantiate(arrayElementPrefab) as GameObject;
+                e.transform.parent = transform;
+            }
+        }
+
+        // 修改待排序物体的物理状态
+        for (int i = 0; i < n; i++)
+        {
+            var e = transform.GetChild(i).gameObject;
+
+            float x = Mathf.Lerp(-pannelWidth / 2f, pannelWidth / 2f, (i + .5f) / (float)n);
+            float h = Mathf.Lerp(0, pannelHeight, A[i] / (float)n);
+
+            e.transform.position = new Vector3(x, 0, 0);
+            e.transform.localScale = new Vector3(strokeWidth, h, 0);
+            e.GetComponent<SpriteRenderer>().color = palette[States[i]];
+        }
+    }
+}
+```
+
+待续...
