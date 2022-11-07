@@ -1,9 +1,10 @@
+@import "./style.css"
+
 <h1 align='center'> Sort-Visualizer </h1>
 
 <p align="center">
   这是一个基于 Unity 的<b>排序算法</b>可视化框架
 </p>
-
 
 
 ## ⚙️ 安装
@@ -41,11 +42,9 @@ Sort-Visualizer
 README.md
 ```
 
-
-@import "docs/imgs/1.png"
-
-
 ## ⚡️ 使用
+<image align="right" id="img189" src="https://github.com/homeless-honey/Sort-Visualizer/blob/main/docs/imgs/1.png?raw=true" width=50%>
+
 1. 在 `Project` 窗口中打开 `Assets > Scenes > Sort Visualizer` 场景
 2. 在 `Hierarchy` 窗口中选中 `Sort Anim` 对象
 3. 在 `Inspector` 窗口中修改参数
@@ -54,4 +53,5 @@ README.md
    - `动画` 设置动画参数
    - `录制` 选择是否开启录制
 
-![2](https://github.com/homeless-honey/Sort-Visualizer/blob/main/docs/imgs/1.png)
+
+## ⚡️ 使用
