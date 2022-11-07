@@ -7,10 +7,12 @@ public class TriangleArrayVisual : ArrayVisual
 {
 
     [Title("显示区域")]
+    [OnValueChanged("Refresh")]
     public float pannelWidth;
+    [OnValueChanged("Refresh")]
     public float pannelHeight;
 
-    public override void UpdateObjs()
+    protected override void UpdateObjs()
     {
         // 生成所有待排序的物体
         if (transform.childCount != n)

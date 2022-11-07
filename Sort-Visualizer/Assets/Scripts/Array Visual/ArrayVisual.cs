@@ -7,15 +7,20 @@ public class ArrayVisual : MonoBehaviour
 {
 
     [Title("数组"), LabelText("元素")]
+    [OnValueChanged("Refresh")]
     public GameObject arrayElementPrefab;
 
     [LabelText("宽度")]
     [Range(0, 1)]
+    [OnValueChanged("Refresh")]
     public float strokeWidth;
 
     [LabelText("数量")]
+    [Range(0, 128)]
     [DisableInPlayMode]
+    [OnValueChanged("Refresh")]
     public int n;
+
     [HideInInspector]
     public int[] A; // 数组
     int[] states;   // 数组每个元素的状态
@@ -64,10 +69,8 @@ public class ArrayVisual : MonoBehaviour
         A[j] = temp;
     }
 
-    public void InitArray()
+    protected virtual void InitArray()
     {
-        Debug.Log("initArray");
-
         A = new int[n];
         states = new int[n];
 
@@ -78,15 +81,24 @@ public class ArrayVisual : MonoBehaviour
         }
     }
 
-    public virtual void UpdateObjs()
+    public void Clear()
+    {
+        A = null;
+        states = null;
+
+        while (transform.childCount > 0)
+        {
+            DestroyImmediate(transform.GetChild(0).gameObject);
+        }
+    }
+
+    protected virtual void UpdateObjs()
     {
     }
 
     public void Refresh()
     {
-        //? https://docs.unity3d.com/ScriptReference/Application-isPlaying.html 
-        if (!Application.isPlaying) return;
-
+        Clear();
         InitArray();
         UpdateObjs();
     }

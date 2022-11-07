@@ -10,7 +10,7 @@ public class PolarArrayVisual : TriangleArrayVisual
     public float innerRadius;
     public float outerRadius;
 
-    public override void UpdateObjs()
+    protected override void UpdateObjs()
     {
         // 生成所有待排序的物体
         if (transform.childCount != n)

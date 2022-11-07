@@ -42,6 +42,7 @@ public class SortAnim : MonoBehaviour
 
     void Refresh()
     {
+        //? https://docs.unity3d.com/ScriptReference/Application-isPlaying.html 
         if (!Application.isPlaying) return;
 
         StopCurrentSort();
