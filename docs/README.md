@@ -1,9 +1,3 @@
-<style>
-#img189 {
-    box-shadow: rgba(0, 0, 0, 0.9) 0px 10px 50px;
-}
-</style>
-
 <h1 align='center'> Sort-Visualizer </h1>
 
 <p align="center">
@@ -47,7 +41,7 @@ README.md
 ```
 
 ## ⚡️ 使用
-<image align="right" id="img189" src="https://github.com/homeless-honey/Sort-Visualizer/blob/main/docs/imgs/1.png?raw=true" width=50%>
+<image align="right" style="box-shadow: rgba(0, 0, 0, 0.9) 0px 10px 50px;" src="https://github.com/homeless-honey/Sort-Visualizer/blob/main/docs/imgs/1.png?raw=true" width=50%>
 
 1. 在 `Project` 窗口中打开 `Assets > Scenes > Sort Visualizer` 场景
 2. 在 `Hierarchy` 窗口中选中 `Sort Anim` 对象
