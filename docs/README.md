@@ -41,8 +41,9 @@ README.md
 ```
 
 ## ⚡️ 使用
+
 <img src="https://github.com/homeless-honey/Sort-Visualizer/blob/main/docs/imgs/1.png?raw=true"
-width=40%
+width=35%
 hspace=5%
 align="right"> 
 
@@ -53,6 +54,34 @@ align="right">
    - `排序算法` 默认提供了9种算法实现，点击选择
    - `动画` 设置动画参数
    - `录制` 选择是否开启录制
+4. 点击▶️运行程序
+5. 程序运行中亦可修改参数（但不会保存）
 
+<br>
+<br>
+<br>
 
-## ⚡️ 使用
+## ⏺️ 自定义录制
+
+<img src="https://github.com/homeless-honey/Sort-Visualizer/blob/main/docs/imgs/2.png?raw=true"
+width=35%
+hspace=5%
+align="right"> 
+
+1. 在 `Project` 窗口中打开 `Assets > Prefabs > Movie Recorder` 预制体
+2. 在 `Inspector` 窗口中修改录制参数
+   - `settings` 资源文件可以在 `Assets > Settings` 内 `右键 > Create > Recorder > ...` 创建
+3. 别忘了将预制体拖入 `Hierarchy` 窗口（已有则不用拖）
+4. `SortAnim` 会按计划接管录制工作
+   - 每次排序都会自动录制保存到设定的文件夹内
+   - 如果你只想录制默认流程，这条就到此为止了
+5. 🧐若想自行控制录制周期
+    ```csharp
+    // MovieRecorder 使用了单例模式，无需创建对象，按如下方法调用即可
+
+    // 开始录制
+    MovieRecorder.Instance.StartRecording();
+
+    // 停止录制
+    MovieRecorder.Instance.StopRecording();
+    ```
