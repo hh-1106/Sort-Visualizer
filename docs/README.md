@@ -1,11 +1,19 @@
-<h1 align='center'> Sort-Visualizer </h1>
+<div align="center">
 
-<p align="center">
-<font size="4">
-  这是一个基于 Unity 的<b>排序算法</b>可视化框架
-</font>
+# Sort-Visualizer
+这是一个基于 Unity 的<b>排序算法</b>可视化框架
+
+<p>
+    <a href="https://www.zhihu.com/people/homeless-honey/posts">
+        <img src="https://img.shields.io/badge/-北北-f6f6f6?logo=zhihu">
+    </a>
+    <a href="https://space.bilibili.com/16054225">
+        <img src="https://img.shields.io/badge/-SIH-f77199?logo=bilibili">
+    </a>
+    <img src="https://img.shields.io/github/license/hh-1106/Sort-Visualizer?color=blue">
 </p>
 
+</div>
 
 ## ⚙️ 安装
 1. `clone` 或 `download` 此 `repo` 到你的电脑
