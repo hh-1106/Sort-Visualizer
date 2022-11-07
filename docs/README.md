@@ -1,4 +1,8 @@
-@import "./style.css"
+<style>
+#img189 {
+    box-shadow: rgba(0, 0, 0, 0.9) 0px 10px 50px;
+}
+</style>
 
 <h1 align='center'> Sort-Visualizer </h1>
 
