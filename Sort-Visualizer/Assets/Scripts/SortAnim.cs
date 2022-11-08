@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using Sirenix.OdinInspector;
 
 
@@ -33,6 +34,9 @@ public class SortAnim : MonoBehaviour
     [ShowInInspector]
     [ReadOnly]
     bool sorting;
+
+    [Title("UI")]
+    public TextMeshProUGUI SAName;
 
     private void Start()
     {
@@ -71,7 +75,7 @@ public class SortAnim : MonoBehaviour
             _ => new Shuffle(),
         };
         sortTask = new Task(sa.Sort(av, delay), false);
-
+        SAName.text = "Shuffle";
 
         // 开始录制
         if (enableRecord) { MovieRecorder.Instance.StartRecording(); }
@@ -80,6 +84,7 @@ public class SortAnim : MonoBehaviour
         shuffleTask.Finished += delegate (bool manual)
         {
             sortTask.Start();
+            SAName.text = sa.ToString();
         };
 
         // 排序正常结束后停止录制
