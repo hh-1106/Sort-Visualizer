@@ -19,7 +19,12 @@ public class SortAnim : MonoBehaviour
     [Title("排序算法"), HideLabel]
     [EnumToggleButtons]
     [OnValueChanged("Refresh")]
+    [DisableIf("sorting")]
     public SortAlogorithmEnum SAEnum;
+
+    [ShowInInspector]
+    [ReadOnly]
+    bool sorting;
 
     [Title("动画"), LabelText("时间步长")]
     [Range(0, 0.1f)]
@@ -30,10 +35,6 @@ public class SortAnim : MonoBehaviour
     public bool enableRecord;
 
     Task shuffleTask, sortTask;
-
-    [ShowInInspector]
-    [ReadOnly]
-    bool sorting;
 
     [Title("UI")]
     public TextMeshProUGUI SAName;
