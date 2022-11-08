@@ -77,7 +77,8 @@ public class ArrayVisual : MonoBehaviour
 
         for (int i = 0; i < n; i++)
         {
-            A[i] = n - i;
+            // A[i] = n - i;
+            A[i] = i + 1;
             states[i] = 0;
         }
     }

@@ -4,7 +4,7 @@
 这是一个基于 Unity 的<b>排序算法</b>可视化框架
 
 <p>
-    <a href="https://www.zhihu.com/people/homeless-honey/posts">
+    <a href="https://www.zhihu.com/people/hh-1106/posts">
         <img src="https://img.shields.io/badge/-北北-f6f6f6?logo=zhihu">
     </a>
     <a href="https://space.bilibili.com/16054225">
@@ -14,6 +14,12 @@
 </p>
 
 </div>
+
+<p align="center">
+<img width=32% hspace=0.1% src="https://github.com/hh-1106/Sort-Visualizer/blob/main/docs/gifs/merge.gif?raw=true">
+<img width=32% hspace=0.1% src="https://github.com/hh-1106/Sort-Visualizer/blob/main/docs/gifs/radix.gif?raw=true">
+<img width=32% hspace=0.1% src="https://github.com/hh-1106/Sort-Visualizer/blob/main/docs/gifs/heap.gif?raw=true">
+</p>
 
 ## ⚙️ 安装
 1. `clone` 或 `download` 此 `repo` 到你的电脑
@@ -56,7 +62,7 @@ README.md
 
 ## ⚡️ 使用
 
-<img src="https://github.com/homeless-honey/Sort-Visualizer/blob/main/docs/imgs/1.png?raw=true"
+<img src="https://github.com/hh-1106/Sort-Visualizer/blob/main/docs/imgs/1.png?raw=true"
 width=40%
 hspace=5%
 align="right"> 
@@ -79,7 +85,7 @@ align="right">
 
 ## ⏺️ 自定义录制
 
-<img src="https://github.com/homeless-honey/Sort-Visualizer/blob/main/docs/imgs/2.png?raw=true"
+<img src="https://github.com/hh-1106/Sort-Visualizer/blob/main/docs/imgs/2.png?raw=true"
 width=40%
 hspace=5%
 align="right"> 
@@ -151,9 +157,9 @@ public class ArrayVisual : MonoBehaviour
 #### 🐦 Triangle Array Visual
 
 
-<img src="https://github.com/homeless-honey/Sort-Visualizer/blob/main/docs/gifs/1.gif?raw=true"
+<img src="https://github.com/hh-1106/Sort-Visualizer/blob/main/docs/gifs/1.gif?raw=true"
 width=60%
-hspace=2%
+hspace=3%
 align="right"> 
 
 `Triangle Array Visual` 是已提供的范例，它将数组的每个元素按照其数值映射为长方形物体，按照下标顺序横向排列。
@@ -202,9 +208,9 @@ public class TriangleArrayVisual : ArrayVisual
 #### 🤯 Other Array Visual
 
 
-<img src="https://github.com/homeless-honey/Sort-Visualizer/blob/main/docs/gifs/2.gif?raw=true"
+<img src="https://github.com/hh-1106/Sort-Visualizer/blob/main/docs/gifs/2.gif?raw=true"
 width=60%
-hspace=2%
+hspace=3%
 align="right"> 
 
 同理，你可以发挥自己的创意制作各式各样的视觉方案。再来回顾一下流程吧~
@@ -221,4 +227,75 @@ align="right">
 <br>
 
 ## 🌈 自定义排序算法
-待续...
+
+庆幸的是，本框架已经内置了九种经典排序算法。由于算法实现源于我本科时的项目<a href="https://zhuanlan.zhihu.com/p/163725242"> <img src="https://img.shields.io/badge/processing-排序可视化-f6f6f6?logo=zhihu"> </a>，~~所以说不定有不少bug~~，当时 <kbd>C V</kbd> 了许多代码，年代久远，已经无从溯源，总之感谢🙏前辈们的开源精神吧。
+
+>不过要是你🥵想扩展更多算法的话，就继续前进吧。
+
+为了放慢排序的过程，我使用了协程来暂停时间。因此你大概需要亿点点<a href="https://www.youtube.com/watch?v=Eq6rCCO2EU0"> <img src="https://img.shields.io/badge/-coroutines-fa0008?logo=youtube"> </a>的知识。以 `插入排序` 为例，我们来看看具体实现步骤。
+
+1. 在 `Assets > Scripts > Sort Algorithm` 中新建 `InsertionSort` 脚本 ~~（东西要分类好🍻）~~
+    ```csharp
+    // 继承 ISortAlgorithm 接口
+    public class InsertionSort : ISortAlgorithm
+    {
+        // 实现排序方法
+        public IEnumerator Sort(ArrayVisual A, float delay)
+        {
+            // 我将以摸牌时的插入策略来说明本算法实现
+            // 手牌已有一张，对于接下来摸到的每一张牌
+            for (int j = 1; j < A.n; j++)
+            {
+                // 切换状态，表示摸到了这张牌
+                A.States[j] = 2;
+                int k = A[j];
+
+                // [0..i]表示手牌，手牌总是排好序的
+                int i = j - 1;
+
+                // 我们要在手牌中找一个位置，从右(大)往左(小)找
+                while (i >= 0 && A[i] > k)
+                {
+                    // 切换状态，以标记我们正在比较哪张手牌
+                    // 使用 delay，把这个瞬间暂停下来
+                    A.States[i] = 1;
+                    yield return new WaitForSeconds(delay);
+                    A.States[i] = 0;
+
+                    A[i + 1] = A[i];
+                    i--;
+                }
+
+                // 插入手牌
+                A[i + 1] = k;
+
+                // 切换状态，表示这张牌已经插入手牌
+                A.States[j] = 0;
+            }
+        }
+    }
+    ```
+2. 为了在 `SortAnim` 面板上使用我们新写的算法，还需要在 `SortAnim.cs` 脚本中做一些布置
+    ```csharp
+    // 添加枚举类型，将会显示在面板上
+    public enum SortAlogorithmEnum
+    {
+        Insertion,
+    }
+
+    public class SortAnim : MonoBehaviour
+    {
+        // ...
+        void StartNewSort()
+        {
+            // ...
+            sa = SAEnum switch
+            {
+                // 当枚举值为 Insertion 时，创建相应的排序算法
+                SortAlogorithmEnum.Insertion => new InsertionSort(),
+            };
+        }
+    }
+    ```
+
+<img width=100% hspace=0% src="https://github.com/hh-1106/Sort-Visualizer/blob/main/docs/gifs/insertion.gif?raw=true">
