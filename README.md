@@ -17,10 +17,12 @@
 
 ## ⚙️ 安装
 1. `clone` 或 `download` 此 `repo` 到你的电脑
-2. 用 `Unity Hub` 打开 `repo` 中的 `Sort-Visualizer`文件夹
-3. 等待 Unity 启动和导入项目
-4. `Unity` 菜单栏点击 `Window > Package Manger`，搜索 `Post Processing` 并安装
-5. 安装结束后项目结构应如下
+2. 解压 `repo > Sort-Visualizer > Assets > Plugins.zip`
+3. 用 `Unity Hub` 打开 `Sort-Visualizer` 文件夹
+4. 等待 Unity 启动和导入项目
+5. `Unity` 菜单栏点击 `Window > Package Manger`，搜索 `Post Processing` 并安装
+   - 搜不到的话请检查 `Package Manager` 窗口左上角是否选中 `Packages: Unity Registry`
+6. 安装结束后项目结构应如下
 
 ```
 Sort-Visualizer
@@ -146,46 +148,65 @@ public class ArrayVisual : MonoBehaviour
 ```
 不难发现，我们的 `ArrayVisual` 拥有将数组可视化的能力，它会在 `Update` 中不断地根据数组信息同步视觉呈现。至于如何修改数组，那是 `Sort Algorithm` 的事。现在让我们专注到数组最初的样子吧。
 
-#### TriangleArrayVisual
+#### 🐦 TriangleArrayVisual
+
 
 <img src="https://github.com/homeless-honey/Sort-Visualizer/blob/main/docs/gifs/1.gif?raw=true"
-width=30%
-hspace=0%
+width=60%
+hspace=1%
 align="right"> 
 
+`Triangle Array Visual` 是已提供的范例，它将数组的每个元素按照其数值映射为长方形物体，按照下标顺序横向排列。
+
+- 你可以在示例场景中点击 `Array Visual > TriangleArrayVisual`，便能如右图一般实时调整视觉效果。
+- 如果你想在自己的场景中使用，从 `Assets > Prefabs > Array Visual` 中拖入 `Hierarchy` 窗口即可。
+- 在你做好自己的视觉方案后，记得反过来将其保存为预制体哦。
+
+<font color=#7e7e7e > 双击打开其上挂载的 `Script`，我们来看看它是如何实现的吧。</font>
 
 ```csharp
+// 继承 ArrayVisual 类
 public class TriangleArrayVisual : ArrayVisual
 {
+    // 整体画布的宽、高
     public float pannelWidth;
     public float pannelHeight;
 
+    // 重写父类方法
     protected override void UpdateObjs()
     {
-        // 生成所有待排序的物体
-        if (transform.childCount != n)
-        {
-            for (int i = 0; i < n; i++)
-            {
-                GameObject e = Instantiate(arrayElementPrefab) as GameObject;
-                e.transform.parent = transform;
-            }
-        }
+        // 为数组每个元素都生成视觉物体，并设为孩子统一管理
+        CheckChildCount();
 
-        // 修改待排序物体的物理状态
+        // 修改所有子物体的物理状态
         for (int i = 0; i < n; i++)
         {
+            // 每一个子物体e
             var e = transform.GetChild(i).gameObject;
 
+            // 计算其位置和高度
             float x = Mathf.Lerp(-pannelWidth / 2f, pannelWidth / 2f, (i + .5f) / (float)n);
             float h = Mathf.Lerp(0, pannelHeight, A[i] / (float)n);
 
+            // 设置相应的物理属性
             e.transform.position = new Vector3(x, 0, 0);
             e.transform.localScale = new Vector3(strokeWidth, h, 0);
+
+            // 修改颜色
             e.GetComponent<SpriteRenderer>().color = palette[States[i]];
         }
     }
 }
 ```
+
+#### 🐣 PolarArrayVisual
+
+
+<img src="https://github.com/homeless-honey/Sort-Visualizer/blob/main/docs/gifs/2.gif?raw=true"
+width=60%
+hspace=1%
+align="right"> 
+
+
 
 待续...

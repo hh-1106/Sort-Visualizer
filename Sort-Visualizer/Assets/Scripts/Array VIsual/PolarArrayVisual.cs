@@ -15,14 +15,7 @@ public class PolarArrayVisual : ArrayVisual
     protected override void UpdateObjs()
     {
         // 生成所有待排序的物体
-        if (transform.childCount != n)
-        {
-            for (int i = 0; i < n; i++)
-            {
-                GameObject e = Instantiate(arrayElementPrefab) as GameObject;
-                e.transform.parent = transform;
-            }
-        }
+        CheckChildCount();
 
         // 修改待排序物体的物理状态
         for (int i = 0; i < n; i++)

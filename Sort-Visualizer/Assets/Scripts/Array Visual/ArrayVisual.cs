@@ -82,14 +82,12 @@ public class ArrayVisual : MonoBehaviour
         }
     }
 
-    public void Clear()
+    public void CheckChildCount()
     {
-        A = null;
-        states = null;
-
-        while (transform.childCount > 0)
+        if (transform.childCount != n)
         {
-            DestroyImmediate(transform.GetChild(0).gameObject);
+            DestoryChildren();
+            GenerateChildren();
         }
     }
 
@@ -102,5 +100,29 @@ public class ArrayVisual : MonoBehaviour
         Clear();
         InitArray();
         UpdateObjs();
+    }
+
+    void Clear()
+    {
+        A = null;
+        states = null;
+        DestoryChildren();
+    }
+
+    void DestoryChildren()
+    {
+        while (transform.childCount > 0)
+        {
+            DestroyImmediate(transform.GetChild(0).gameObject);
+        }
+    }
+
+    void GenerateChildren()
+    {
+        for (int i = 0; i < n; i++)
+        {
+            GameObject e = Instantiate(arrayElementPrefab) as GameObject;
+            e.transform.parent = transform;
+        }
     }
 }
