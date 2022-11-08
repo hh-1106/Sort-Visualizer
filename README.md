@@ -48,8 +48,7 @@ Sort-Visualizer
     Recordings                                          录制存放文件夹（自定义）
     ...
 docs
-
-    README.md
+README.md
 ```
 
 
@@ -148,6 +147,13 @@ public class ArrayVisual : MonoBehaviour
 不难发现，我们的 `ArrayVisual` 拥有将数组可视化的能力，它会在 `Update` 中不断地根据数组信息同步视觉呈现。至于如何修改数组，那是 `Sort Algorithm` 的事。现在让我们专注到数组最初的样子吧。
 
 #### TriangleArrayVisual
+
+<img src="https://github.com/homeless-honey/Sort-Visualizer/blob/main/docs/gifs/1.gif?raw=true"
+width=30%
+hspace=0%
+align="right"> 
+
+
 ```csharp
 public class TriangleArrayVisual : ArrayVisual
 {
