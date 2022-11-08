@@ -63,8 +63,8 @@ README.md
 ## ⚡️ 使用
 
 <img src="https://github.com/hh-1106/Sort-Visualizer/blob/main/docs/imgs/1.png?raw=true"
-width=40%
-hspace=5%
+width=44%
+hspace=3%
 align="right"> 
 
 1. 在 `Project` 窗口中打开 `Assets > Scenes > Sort Visualizer` 场景
@@ -75,8 +75,9 @@ align="right">
    - `动画` 设置动画参数
    - `录制` 选择是否开启录制
 4. 点击▶️运行程序
-5. 程序运行中亦可修改参数（但不会保存）
+5. 如果你 `Enable Record`，运行时会自动录制视频
 
+<br>
 <br>
 <br>
 <br>
@@ -86,8 +87,8 @@ align="right">
 ## ⏺️ 自定义录制
 
 <img src="https://github.com/hh-1106/Sort-Visualizer/blob/main/docs/imgs/2.png?raw=true"
-width=40%
-hspace=5%
+width=44%
+hspace=3%
 align="right"> 
 
 1. 在 `Project` 窗口中打开 `Assets > Prefabs > Movie Recorder` 预制体
@@ -108,6 +109,7 @@ align="right">
     MovieRecorder.Instance.StopRecording();
     ```
 
+<br>
 <br>
 
 
@@ -158,7 +160,7 @@ public class ArrayVisual : MonoBehaviour
 
 
 <img src="https://github.com/hh-1106/Sort-Visualizer/blob/main/docs/gifs/1.gif?raw=true"
-width=60%
+width=52%
 hspace=3%
 align="right"> 
 
@@ -209,7 +211,7 @@ public class TriangleArrayVisual : ArrayVisual
 
 
 <img src="https://github.com/hh-1106/Sort-Visualizer/blob/main/docs/gifs/2.gif?raw=true"
-width=60%
+width=52%
 hspace=3%
 align="right"> 
 
@@ -228,11 +230,13 @@ align="right">
 
 ## 🌈 自定义排序算法
 
-庆幸的是，本框架已经内置了九种经典排序算法。由于算法实现源于我本科时的项目<a href="https://zhuanlan.zhihu.com/p/163725242"> <img src="https://img.shields.io/badge/processing-排序可视化-f6f6f6?logo=zhihu"> </a>，~~所以说不定有不少bug~~，当时 <kbd>C V</kbd> 了许多代码，年代久远，已经无从溯源，总之感谢🙏前辈们的开源精神吧。
+庆幸的是，本框架已经内置了九种经典排序算法。由于算法实现源于我本科时的项目<a href="https://zhuanlan.zhihu.com/p/163725242"> <img src="https://img.shields.io/badge/processing-排序可视化-f6f6f6?logo=zhihu"> </a>，~~所以说不定有不少bug~~，当时 <kbd>C V</kbd> 了许多代码，年代久远，已经无从溯源，总之感谢🙏前辈们的开源精神！
 
 >不过要是你🥵想扩展更多算法的话，就继续前进吧。
 
 为了放慢排序的过程，我使用了协程来暂停时间。因此你大概需要亿点点<a href="https://www.youtube.com/watch?v=Eq6rCCO2EU0"> <img src="https://img.shields.io/badge/-coroutines-fa0008?logo=youtube"> </a>的知识。以 `插入排序` 为例，我们来看看具体实现步骤。
+
+<img width=100% hspace=0% src="https://github.com/hh-1106/Sort-Visualizer/blob/main/docs/gifs/insertion.gif?raw=true">
 
 1. 在 `Assets > Scripts > Sort Algorithm` 中新建 `InsertionSort` 脚本 ~~（东西要分类好🍻）~~
     ```csharp
@@ -297,5 +301,3 @@ align="right">
         }
     }
     ```
-
-<img width=100% hspace=0% src="https://github.com/hh-1106/Sort-Visualizer/blob/main/docs/gifs/insertion.gif?raw=true">
