@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-public class PolarArrayVisual : TriangleArrayVisual
+public class PolarArrayVisual : ArrayVisual
 {
 
     [Title("Polar")]
+    [OnValueChanged("Refresh")]
     public float innerRadius;
+    [OnValueChanged("Refresh")]
     public float outerRadius;
 
     protected override void UpdateObjs()

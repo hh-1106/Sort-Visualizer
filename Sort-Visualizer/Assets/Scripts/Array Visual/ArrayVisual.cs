@@ -17,7 +17,7 @@ public class ArrayVisual : MonoBehaviour
 
     [LabelText("数量")]
     [Range(0, 128)]
-    // [DisableInPlayMode]
+    [DisableInPlayMode]
     [OnValueChanged("Refresh")]
     public int n;
 
@@ -26,6 +26,7 @@ public class ArrayVisual : MonoBehaviour
     int[] states;   // 数组每个元素的状态
 
     [Title("配色板")]
+    [OnValueChanged("Refresh")]
     public Color[] palette;
 
     public int this[int i]
