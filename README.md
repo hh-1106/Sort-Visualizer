@@ -109,7 +109,7 @@ align="right">
 本节我们将要实现一个数组可视化方案，别担心，你要做的只是决定数组的每个 `元素` 长什么样子，以及怎样 `摆放` 它们而已。只需要几十行代码哦。
 我知道你已经跃跃欲试了，不过还是先看看我们有什么吧~
 
-### 🐔 ArrayVisual
+### 🐔 Array Visual
 脱下 `unity魔法外衣`，这只基类已然露出本来样貌。
 
 ```csharp
@@ -148,12 +148,12 @@ public class ArrayVisual : MonoBehaviour
 ```
 不难发现，我们的 `ArrayVisual` 拥有将数组可视化的能力，它会在 `Update` 中不断地根据数组信息同步视觉呈现。至于如何修改数组，那是 `Sort Algorithm` 的事。现在让我们专注到数组最初的样子吧。
 
-#### 🐦 TriangleArrayVisual
+#### 🐦 Triangle Array Visual
 
 
 <img src="https://github.com/homeless-honey/Sort-Visualizer/blob/main/docs/gifs/1.gif?raw=true"
 width=60%
-hspace=1%
+hspace=2%
 align="right"> 
 
 `Triangle Array Visual` 是已提供的范例，它将数组的每个元素按照其数值映射为长方形物体，按照下标顺序横向排列。
@@ -199,14 +199,26 @@ public class TriangleArrayVisual : ArrayVisual
 }
 ```
 
-#### 🐣 PolarArrayVisual
+#### 🤯 Other Array Visual
 
 
 <img src="https://github.com/homeless-honey/Sort-Visualizer/blob/main/docs/gifs/2.gif?raw=true"
 width=60%
-hspace=1%
+hspace=2%
 align="right"> 
 
+同理，你可以发挥自己的创意制作各式各样的视觉方案。再来回顾一下流程吧~
+- 新建空物体
+- 添加 `MyArrayVisual` 脚本
+- 继承 `ArrayVisual` 类
+- 重写 `UpdateObjs` 方法进行数组造型
+- 重写 `InitArray` 方法定义数组初态
+- `Inspector` 内微调参数
+- 替换自己的 `arrayElementPrefab`
+- 最终保存为 `My Array Visual Prefab`
 
+<br>
+<br>
 
+## 🌈 自定义排序算法
 待续...
