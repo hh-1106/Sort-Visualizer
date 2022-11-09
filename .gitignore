@@ -52,7 +52,7 @@ ExportedObj/
 *.VC.db
 
 # Unity3D generated meta files
-*.meta
+# *.meta
 
 # Unity3D generated file on crash reports
 sysinfo.txt
