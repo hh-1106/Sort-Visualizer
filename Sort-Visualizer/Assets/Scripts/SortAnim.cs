@@ -22,6 +22,8 @@ public class SortAnim : MonoBehaviour
     [DisableIf("sorting")]
     public SortAlogorithmEnum SAEnum;
 
+    public bool shuffleFirst = true;
+
     [ShowInInspector]
     [ReadOnly]
     bool sorting;
@@ -59,10 +61,6 @@ public class SortAnim : MonoBehaviour
     {
         av.sorted = false;
 
-        // 创建打乱任务
-        sa = new Shuffle();
-        shuffleTask = new Task(sa.Sort(av, -1));
-
         // 创建排序任务
         sa = SAEnum switch
         {
@@ -78,17 +76,35 @@ public class SortAnim : MonoBehaviour
             _ => new Shuffle(),
         };
         sortTask = new Task(sa.Sort(av, delay), false);
-        SAName.text = "Shuffle";
 
-        // 开始录制
-        if (enableRecord) { MovieRecorder.Instance.StartRecording(); }
+        // 排序前若需打乱
+        if (shuffleFirst)
+        {
+            // 创建打乱任务并直接开始
+            sa = new Shuffle();
+            shuffleTask = new Task(sa.Sort(av, -1));
+            SAName.text = "Shuffle";
 
-        // 打乱结束后自动开始排序
-        shuffleTask.Finished += delegate (bool manual)
+            // 打乱结束后自动开始排序
+            shuffleTask.Finished += delegate (bool manual)
+            {
+                sortTask.Start();
+                SAName.text = sa.ToString();
+            };
+        }
+        else
         {
             sortTask.Start();
             SAName.text = sa.ToString();
-        };
+        }
+
+        Record();
+    }
+
+    void Record()
+    {
+        // 开始录制
+        if (enableRecord) { MovieRecorder.Instance.StartRecording(); }
 
         // 排序正常结束后停止录制
         sortTask.Finished += delegate (bool manual)
