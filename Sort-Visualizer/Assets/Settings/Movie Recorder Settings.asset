@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
-  m_ObjectHideFlags: 53
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -51,7 +51,7 @@ MonoBehaviour:
         m_CustomWidth: 1024
         m_CustomHeight: 1024
         imageHeight: 0
-        maxSupportedHeight: 2160
+        maxSupportedHeight: 4320
         m_AspectRatio:
           m_CustomAspectX: 1
           m_CustomAspectY: 1
@@ -89,13 +89,13 @@ MonoBehaviour:
       colorSpace: 0
       flipFinalOutput: 0
   m_AudioInputSettings:
-    preserveAudio: 0
+    preserveAudio: 1
   _accumulationSettings:
-    rid: 8586833497478397953
+    rid: 810251225460637696
   references:
     version: 2
     RefIds:
-    - rid: 8586833497478397953
+    - rid: 810251225460637696
       type: {class: AccumulationSettings, ns: , asm: Unity.Recorder.Editor}
       data:
         captureAccumulation: 0

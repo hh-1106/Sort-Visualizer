@@ -23,4 +23,5 @@ MonoBehaviour:
   m_CapFrameRate: 0
   m_RecorderSettings:
   - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 11400000, guid: eef6c27e885ea0749b2a9cfe7790561c, type: 2}
