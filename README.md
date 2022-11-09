@@ -23,12 +23,11 @@
 
 ## ⚙️ 安装
 1. `clone` 或 `download` 此 `repo` 到你的电脑
-2. 解压 `repo > Sort-Visualizer > Assets > Plugins.zip`
-3. 用 `Unity Hub` 打开 `Sort-Visualizer` 文件夹
-4. 等待 Unity 启动和导入项目
-5. `Unity` 菜单栏点击 `Window > Package Manger`，搜索 `Post Processing` 并安装
-   - 搜不到的话请检查 `Package Manager` 窗口左上角是否选中 `Packages: Unity Registry`
-6. 安装结束后项目结构应如下
+   - 解压 `repo > Sort-Visualizer > Assets > Plugins.zip`
+   - 或者直接从右侧 [Release](https://github.com/hh-1106/Sort-Visualizer/releases) 页面下载最新版
+2. 用 [Unity Hub](https://unity.com/cn/download) 打开 `Sort-Visualizer` 文件夹
+3. 等待 Unity 启动和导入项目
+4. 安装结束后项目结构应如下
 
 ```
 Sort-Visualizer
@@ -55,8 +54,6 @@ Sort-Visualizer
     Packages                                            官方插件包
     Recordings                                          录制存放文件夹（自定义）
     ...
-docs
-README.md
 ```
 
 
