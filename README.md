@@ -167,10 +167,9 @@ align="right">
 `Triangle Array Visual` 是已提供的范例，它将数组的每个元素按照其数值映射为长方形物体，按照下标顺序横向排列。
 
 - 你可以在示例场景中点击 `Array Visual > TriangleArrayVisual`，便能如右图一般实时调整视觉效果。
-- 如果你想在自己的场景中使用，从 `Assets > Prefabs > Array Visual` 中拖入 `Hierarchy` 窗口即可。
+- 如果你想在自己的场景中使用，从 `Assets > Prefabs > Array Visual` 中拖入 `Hierarchy` 窗口，右键 `Prefab > Unpack` 即可。
 - 在你做好自己的视觉方案后，记得反过来将其保存为预制体哦。
 
-<br>
 
 <font color=#7e7e7e > 双击打开其上挂载的 `Script`，我们来看看它是如何实现的吧。</font>
 

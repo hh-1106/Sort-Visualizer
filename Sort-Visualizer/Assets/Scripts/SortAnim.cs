@@ -81,8 +81,7 @@ public class SortAnim : MonoBehaviour
         if (shuffleFirst)
         {
             // 创建打乱任务并直接开始
-            sa = new Shuffle();
-            shuffleTask = new Task(sa.Sort(av, -1));
+            shuffleTask = new Task(new Shuffle().Sort(av, -1));
             SAName.text = "Shuffle";
 
             // 打乱结束后自动开始排序
