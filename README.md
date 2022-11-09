@@ -4,7 +4,7 @@
 这是一个基于 Unity 的<b>排序算法</b>可视化框架
 
 <p>
-    <a href="https://www.zhihu.com/people/hh-1106/posts">
+    <a href="https://www.zhihu.com/people/homeless-honey/posts">
         <img src="https://img.shields.io/badge/-北北-f6f6f6?logo=zhihu">
     </a>
     <a href="https://space.bilibili.com/16054225">
