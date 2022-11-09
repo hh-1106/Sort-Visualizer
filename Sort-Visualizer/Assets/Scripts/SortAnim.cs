@@ -57,6 +57,8 @@ public class SortAnim : MonoBehaviour
 
     void StartNewSort()
     {
+        av.sorted = false;
+
         // 创建打乱任务
         sa = new Shuffle();
         shuffleTask = new Task(sa.Sort(av, -1));
@@ -115,6 +117,7 @@ public class SortAnim : MonoBehaviour
     private void Update()
     {
         sorting = sortTask.Running;
+        av.sorted = !sorting;
     }
 }
 

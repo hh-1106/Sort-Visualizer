@@ -21,6 +21,10 @@ public class ArrayVisual : MonoBehaviour
     [OnValueChanged("Refresh")]
     public int n;
 
+    [ReadOnly]
+    public bool sorted = false;
+
+
     [HideInInspector]
     public int[] A; // 数组
     int[] states;   // 数组每个元素的状态
@@ -28,6 +32,7 @@ public class ArrayVisual : MonoBehaviour
     [Title("配色板")]
     [OnValueChanged("Refresh")]
     public Color[] palette;
+
 
     public int this[int i]
     {
@@ -60,7 +65,10 @@ public class ArrayVisual : MonoBehaviour
 
     private void Update()
     {
-        UpdateObjs();
+        if (!sorted)
+        {
+            UpdateObjs();
+        }
     }
 
     public void Swap(int i, int j)
@@ -107,10 +115,15 @@ public class ArrayVisual : MonoBehaviour
     {
         A = null;
         states = null;
+        ClearVisual();
+    }
+
+    protected virtual void ClearVisual()
+    {
         DestoryChildren();
     }
 
-    void DestoryChildren()
+    protected void DestoryChildren()
     {
         while (transform.childCount > 0)
         {
@@ -118,7 +131,7 @@ public class ArrayVisual : MonoBehaviour
         }
     }
 
-    void GenerateChildren()
+    protected void GenerateChildren()
     {
         for (int i = 0; i < n; i++)
         {
