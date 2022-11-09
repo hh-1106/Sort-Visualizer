@@ -17,8 +17,8 @@
 
 <p align="center">
 <img width=32% hspace=0.1% src="https://github.com/hh-1106/Sort-Visualizer/blob/main/docs/gifs/merge-2.gif?raw=true">
-<img width=32% hspace=0.1% src="https://github.com/hh-1106/Sort-Visualizer/blob/main/docs/gifs/radix.gif?raw=true">
 <img width=32% hspace=0.1% src="https://github.com/hh-1106/Sort-Visualizer/blob/main/docs/gifs/heap-2.gif?raw=true">
+<img width=32% hspace=0.1% src="https://github.com/hh-1106/Sort-Visualizer/blob/main/docs/gifs/radix.gif?raw=true">
 </p>
 
 ## ⚙️ 安装
