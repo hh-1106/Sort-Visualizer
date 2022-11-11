@@ -27,7 +27,7 @@ public class ArrayVisual : MonoBehaviour
 
     [HideInInspector]
     public int[] A; // 数组
-    int[] states;   // 数组每个元素的状态
+    protected int[] states;   // 数组每个元素的状态
 
     [Title("配色板")]
     [OnValueChanged("Refresh")]
